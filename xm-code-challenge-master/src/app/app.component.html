@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+      <thead>
+        <tr class="backTable">
+          <th (click)="nameClicked()">Full Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone number</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | sort: nameFilter">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.address.street +' '+ user.address.suite +' '+ user.address.city}} {{user.address.zipcode | slice:0:5 }}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.company.name | uppercase }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
